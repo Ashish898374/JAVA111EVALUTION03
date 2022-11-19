@@ -1,0 +1,345 @@
+   QUESTION NO=1.
+   abstract class Employee {
+       int employeeId;
+       String employeeName;
+       double salary;
+
+       public Employee(String employeeName) {
+           this.employeeName = employeeName;
+       }
+
+       public Employee(int employeeId) {
+           this.employeeId = employeeId;
+       }
+      abstract double calculateSalary();
+   }
+   class  PermanentEmployee extends Employee{
+    private double basicPay;
+
+       public PermanentEmployee(String employeeName, double basicPay) {
+           super(employeeName);
+           this.basicPay = basicPay;
+       }
+
+       public PermanentEmployee(int employeeId, double basicPay) {
+           super(employeeId);
+           this.basicPay = basicPay;
+       }
+
+       @Override
+       double calculateSalary() {
+           double PFamount=basicPay*0.12;
+           salary=basicPay-PFamount;
+           return salary;
+       }
+   }
+       class TemporaryEmployee extends Employee {
+           private int hoursWorked;
+           private int hourlyWages;
+
+
+
+           public TemporaryEmployee(String employeeName, int hoursWorked, int hourlyWages) {
+               super(employeeName);
+               this.hoursWorked = hoursWorked;
+               this.hourlyWages = hourlyWages;
+           }
+
+           public TemporaryEmployee(int employeeId, int hoursWorked, int hourlyWages) {
+               super(employeeId);
+               this.hoursWorked = hoursWorked;
+               this.hourlyWages = hourlyWages;
+           }
+
+           @Override
+           double calculateSalary() {
+               salary=hourlyWages*hoursWorked;
+               return salary;
+           }
+
+       }
+   class Loan{
+       public double calculateLoanAmount(Employee employeeObj){
+            Employee.
+           return 0;
+       }
+   }
+           class Main{
+           public static void main(String[] args) {
+           Loan l=new Loan();
+            l.calculateLoanAmount(new Employee() {
+
+           }
+       }
+
+
+   ****************************************************************************************
+ QUESTION NO=2.
+import java.util.Scanner;
+public class JavaBean {
+    String name;
+    int marks;
+
+    public JavaBean() {
+        this.name = name;
+        this.marks = marks;
+    }
+    @Override
+    public String toString(){
+        System.out.println(name);
+        System.out.print(marks);
+        return null;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getMarks() {
+        return marks;
+    }
+}
+class Main{
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        JavaBean j=new JavaBean();
+        System.out.println("Enter number of Student");
+        int n=s.nextInt();
+
+        JavaBean student[]=new JavaBean[n];
+        for(int i=0;i<n;i++){
+            JavaBean s1=new JavaBean();
+            System.out.println("Enter the Student Name:");
+            j.name=s.next();
+            System.out.println("Enter the Student Marks:");
+            j.marks=s.nextInt();
+
+            student[i]=j;
+        }
+        int sum=0;
+        for(int i=0;i<student.length;i++){
+            System.out.println(student[i].getName());
+            System.out.println(student[i].getMarks());
+            sum=sum+ student[i].getMarks();
+        }
+        int a=sum/n;
+        System.out.println("Average of Student Marks is "+a);
+    }
+
+
+}
+
+
+******************************************************************************************
+QUETION NO=3. what is the significance the final keyword with following programing constract,
+ANS=  there are three type final keyword
+1.final variable,
+2. fanal mathod,
+3. final class,
+1.final keyword is constant value value will be not replace and no any value add
+2.variable. It can be initialized in the constructor only.
+3.The blank final variable can be static also which will be initialized in the static  only
+
+
+EXAMPLE ;
+
+ Class Crow{
+  final int pk=90;    //  final variable
+  void run(){
+   pk=400;   // it will be not work
+  }
+   public static void main(String[] args){
+  Crow obj=new  Crow();
+  obj.run();
+  }
+ }
+
+OUTPUT:
+          compile time error;
+
+
+
+ FINAL MATHOD;
+1.fine mathod can declear java mathod in  first the final keyword before the mathod name.
+2.The Method with Final Keyword cannot be overridden in the subclass.
+3.The purpose of the Final Method is to declare methods of how definition can not be changed by a child class or subclass that extends it.
+4. the Parent class Final method was overridden by the Child class Final method; that is not possible in the Java programming language.
+
+EXAMPLE;
+public class Parent {
+  final void student() {
+
+  }
+}
+public class Child extends Parent {
+  final void student()         // overriding the method from the parent class
+  {
+
+  }
+}
+
+FINAL CLASS;
+
+1.The main purpose of using a class being declared as final is to prevent the class from being subclassed.
+ 2.If a class is marked as final then no class can inherit any feature from the final class.
+3.You cannot extend a final class. If you try it gives you a compile time error.
+
+EXAMPLE;
+final class Animal{
+}
+
+class Birds extends Animal{    //  inherit here class but  it will be not inherit
+  void run(){System.out.println("runnin all animal");}
+
+  public static void main(String args[]){
+  Birds parrot= new Birds();      // create here object;
+  parrot.run();
+  }
+}
+
+OUTPUT,
+      compile time error;
+
+
+
+
+**************************************************************************************************
+
+  QUESTION N0=4; a= What are the benefits of using an abstract method?
+                b= Explain with an appropriate code example
+   ANS= 1.a class which contains the abstract keyword in this delcreation is called as abstract class
+    2. to use an abstract class you have to inherit it from  the subclass
+    3. if a clss partial contain implementataion then we should declear a class as abstract
+    4. Abstract class is highly beneficial to writing shorter  codes.
+    5.  Abstract class avoids code duplication.
+    6. Abstract classes code are enable to code reusability.
+    7. In Abstract class we can implement internal code without affecting classes.
+    8. super .mathod name wrriten to direcly call as parrent class and this.mathod name as will as use of child class variable
+
+
+
+
+      EXMAPLE;
+      abstract class Animal {
+          void eat(){
+              System.out.println("I am eating food");
+         }
+      }
+
+
+      public class Dog extends Animal {
+          @Override
+          void eat() {
+              System.out.println("Dog are eating food");
+              super.eat();
+          }
+
+          public static void main(String[] args) {
+              Animal obj=new Dog();
+              obj.eat();
+          }
+      }
+
+      output=>Dog are eating food
+
+
+
+
+**************************************************************************************************
+   QUESTION NO=5; a. What is object downcasting?
+                  b. Explain with a code example
+   ANS=
+      1.Downcasting is another form of object type casting and is used
+      2.in appointing the subclass reference object to the parent class that is not allowed in Java.
+      3. downcacting nonstatic mathod and but int and string value not will access
+      4. object create first parrent class after obj and new keyword and child class in class are mathod will be same
+      5. but access chaild class mathod not access parrent class  mathod
+
+   EXAMPLE;
+   public class Students {
+
+       public static void main(String[] args) {
+           Animal parent=new Lion();
+           parent.eat();
+           Lion lions=(Lion) parent;
+           lions.bark();
+           downcast(parent);
+           Animal pureAnimal= new Animal();
+           downcast(pureAnimal);
+
+       }
+       static void downcast(Animal animal){
+           if(animal instanceof Lion) {
+               Lion lions = (Lion) animal;
+               System.out.println("go away.");
+           }
+           else
+           {
+               System.out.println("animal it  of  ");
+           }
+       }
+   }
+   class Animal{
+       void eat(){
+           System.out.println("animal eats");
+       }
+   }
+
+   class Lion extends Animal{
+       @Override
+       void eat(){
+           System.out.println("lions eats");
+       }
+       void bark(){
+           System.out.println("Lion barks");
+       }
+   }
+   OUTPUT:lions eats
+          Lion barks
+          ga way.
+          animal it of ;
+
+
+
+
+         *******************************************************************************
+
+         QUESTION NO=6
+         a. What is object upcasting?
+         b. Explain with a code example.
+
+
+              1. in simple language object upcasting means the typecasting of a child object to a parent object. upcasting can be done implicitly
+              2.Upcasting is a type of object typecasting in which a child object is typecasted to a parent class object. By using the Upcasting,
+              3.we can easily access the variables and methods of the parent class to the child class.
+
+               EXAMPLE;
+
+                 abstract class Animal {
+                          void eat(){
+                              System.out.println("Method of parent class");
+                         }
+                      }
+
+
+
+
+                   public class Dog extends Animal {
+                    @Override
+                    void eat() {
+                        System.out.println("method of child class");
+                        super.eat();
+                    }
+                    void display(){
+                        System.out.println("in side display of Dog");
+                    }
+
+                    public static void main(String[] args) {
+                        Animal obj=new Dog();
+                        obj.eat();
+                    }
+                }
+                output=> method of child class
+
+
+
